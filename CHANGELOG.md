@@ -54,6 +54,10 @@ All notable changes to AgentBus. Full notes for each release are on the
     names the earlier ones.
 
 ### Fixed
+- **Antigravity in Copy mode.** An agy turn in a Copy session runs its commands in agy's own terminal
+  sandbox: they may write only in the copy and temp folders, and agy's sign-in is hidden from them.
+  Before, its commands ran unwalled and could write anywhere the person can. agy's commands get no
+  network in Copy, so a package install fails; the model's own calls still go through.
 - **When a turn ended, and how, is decided once, by control.** A turn's end is its job's end on
   control: a finish control took, or an attempt it found lost. `GET /api/v0/turns` reads the turn's
   state from there once its job has ended, and a run's `run.ended` says only how its agent ended.
